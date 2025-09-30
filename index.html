@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YR11 Radio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <main class="main-content" aria-labelledby="station-name">
+        <header class="top-bar">
+          <div class="featured-show" aria-label="Featured show" data-artist="YR11 Originals" data-spotify="https://open.spotify.com">
+            <div class="show-art" aria-hidden="true">
+              <div class="host-photo"></div>
+            </div>
+            <div class="show-meta">
+              <p class="eyebrow">featured</p>
+              <h2>The Rest is History</h2>
+              <div class="controls" aria-label="Playback controls">
+                <button type="button" aria-label="Previous episode">
+                  <span class="icon icon-previous"></span>
+                </button>
+                <button type="button" class="primary" aria-label="Play">
+                  <span class="icon icon-play"></span>
+                </button>
+                <button type="button" aria-label="Next episode">
+                  <span class="icon icon-next"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="live-indicator" aria-live="polite">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span class="live-text">Live</span>
+          </div>
+        </header>
+
+        <section class="hero" role="presentation">
+          <div class="mic-stage">
+            <img src="public/microphone.png" alt="Vintage microphone" class="mic-image" />
+            <h1 id="station-name" class="wordmark">
+              <span class="wordmark-main">YR</span>
+              <span class="wordmark-outline">11</span>
+            </h1>
+          </div>
+          <p class="tagline">
+            A teen-focused radio station streaming music, podcasts, and more.
+          </p>
+        </section>
+
+        <div class="cta">
+          <a class="cta-button" href="https://open.spotify.com" target="_blank" rel="noopener">
+            <span class="icon icon-spotify" aria-hidden="true"></span>
+            Open Spotify
+            <span class="icon icon-external" aria-hidden="true"></span>
+          </a>
+        </div>
+      </main>
+
+      <aside class="nav-panel" aria-label="Primary navigation">
+        <div class="logo" aria-hidden="true">
+          <img src="public/logo.jpg" alt="YR11 logo" class="logo-image" />
+        </div>
+        <nav>
+          <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li>
+              <a href="#schedule">
+                Schedule
+                <span class="nav-pip" aria-hidden="true"></span>
+              </a>
+            </li>
+            <li><a href="#podcasts">Podcasts</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a class="outline" href="#contact">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- Featured Show Modal -->
+    <div class="modal-overlay" id="modal-featured" aria-hidden="true">
+      <div class="modal" role="dialog" aria-modal="true" aria-labelledby="featured-modal-title">
+        <button class="modal-close" aria-label="Close dialog">✕</button>
+        <div class="modal-header">
+          <div class="modal-badge">Featured Show</div>
+          <h3 id="featured-modal-title">The Rest is History</h3>
+          <p class="modal-artist" id="featured-modal-artist">Artist: YR11 Originals</p>
+        </div>
+        <div class="modal-body">
+          <p>
+            A captivating podcast that dives deep into the fascinating stories, events, and figures that have shaped our world. Hosted by passionate history enthusiasts, it blends rigorous research with engaging storytelling to bring history to life in an accessible and entertaining way. Whether exploring ancient civilizations, pivotal moments, or lesser-known anecdotes, the show offers fresh perspectives and thoughtful insights that make the past feel relevant and exciting for listeners of all backgrounds.
+          </p>
+        </div>
+        <div class="modal-actions">
+          <a class="btn outline" id="featured-modal-play" href="https://open.spotify.com" target="_blank" rel="noopener">
+            <span class="icon icon-spotify" aria-hidden="true"></span>
+            Play on Spotify
+            <span class="icon icon-external" aria-hidden="true"></span>
+          </a>
+          <button class="btn" data-close>Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
