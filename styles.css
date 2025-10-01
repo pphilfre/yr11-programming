@@ -764,3 +764,317 @@ nav a.outline:focus-visible {
     margin: 0;
   }
 }
+
+/* Schedule page layout */
+.schedule-page .page {
+  /* fit the entire schedule view into one screen */
+  height: 100vh;
+  width: 100vw;
+  max-width: none;
+  overflow: hidden;
+}
+
+.schedule-page .main-content {
+  display: grid;
+  grid-template-rows: auto 1fr; /* header then calendar */
+  gap: 0.8rem;
+  height: 100vh;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
+  overflow: hidden;
+}
+
+.schedule-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.schedule-title {
+  font-family: "Unica One", "Archivo", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0.1rem 0 0.6rem;
+}
+
+.calendar {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: clamp(0.6rem, 1.2vw, 1rem);
+  display: grid;
+  grid-template-rows: auto 1fr; /* day names + grid */
+  gap: 0.5rem;
+  min-height: 0; /* allow child grid to size */
+}
+
+.calendar .day-names {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: clamp(0.65rem, 1vw, 0.8rem);
+}
+
+.calendar-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.4rem;
+  grid-auto-rows: 1fr; /* make 5 rows share height */
+  min-height: 0;
+}
+
+.calendar-grid .day {
+  min-height: 0; /* allow compression to fit viewport */
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.8rem;
+  padding: 0.45rem;
+  background: rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.calendar-grid .day.blank {
+  background: transparent;
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+}
+
+.calendar-grid .day.out-month {
+  opacity: 0.5;
+}
+
+.calendar-grid .day .date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.calendar-grid .events {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  overflow: hidden;
+}
+
+.calendar-grid .event {
+  display: block;
+  text-decoration: none;
+  color: var(--text-primary);
+  padding: 0.4rem 0.5rem;
+  border-radius: 0.6rem;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-grid .event strong {
+  display: block;
+  font-weight: 600;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.calendar-grid .event .meta {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Event color tags */
+.calendar-grid .event.blue {
+  background: rgba(64, 132, 255, 0.2);
+  border-color: rgba(64, 132, 255, 0.35);
+}
+
+.calendar-grid .event.tan {
+  background: rgba(219, 171, 117, 0.22);
+  border-color: rgba(219, 171, 117, 0.35);
+}
+
+.calendar-grid .event.light {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.calendar-grid .event.pink {
+  background: rgba(255, 86, 126, 0.22);
+  border-color: rgba(255, 86, 126, 0.36);
+}
+
+.calendar-grid .event.green {
+  background: rgba(86, 214, 137, 0.22);
+  border-color: rgba(86, 214, 137, 0.36);
+}
+
+.calendar-grid .event.yellow {
+  background: rgba(235, 206, 76, 0.22);
+  border-color: rgba(235, 206, 76, 0.36);
+}
+
+/* On smaller screens, keep no-vertical-scroll by allowing content to compress */
+
+/* Keep 7-column calendar on mobile for consistency with the design */
+
+/* Podcasts page layout */
+.podcasts-page .page {
+  height: 100vh;
+  width: 100vw;
+  max-width: none;
+  overflow: hidden;
+}
+
+.podcasts-page .main-content {
+  display: grid;
+  grid-template-rows: auto auto 1fr; /* header, toolbar, grid */
+  gap: 0.7rem;
+  height: 100vh;
+  padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(0.8rem, 3.5vw, 1.6rem);
+  overflow: hidden;
+}
+
+.podcasts-title {
+  font-family: "Unica One", "Archivo", sans-serif;
+  letter-spacing: 0.1em;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin: 0.1rem 0 0.6rem;
+}
+
+.podcasts-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1rem;
+  align-items: center;
+}
+
+.search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+}
+
+.search input[type="search"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  min-width: 200px;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--text-muted);
+  border-radius: 50%;
+  position: relative;
+}
+
+.search-icon::after {
+  content: "";
+  position: absolute;
+  width: 8px; height: 2px;
+  background: var(--text-muted);
+  right: -6px; bottom: -2px;
+  transform: rotate(45deg);
+  border-radius: 1px;
+}
+
+.genres { display: inline-flex; gap: 0.5rem; align-items: center; }
+.chip {
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+.chip.active { background: rgba(255,48,73,0.2); border-color: rgba(255,48,73,0.35); }
+.chip.purple { background: rgba(134, 84, 255, 0.22); border-color: rgba(134,84,255,0.36); }
+.chip.olive { background: rgba(123, 168, 92, 0.22); border-color: rgba(123,168,92,0.36); }
+.chip.dark { background: rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.12); }
+
+.podcast-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.8rem;
+  overflow: hidden; /* prevent page scroll */
+}
+
+@media (max-width: 1080px) {
+  .podcast-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .podcast-grid { grid-template-columns: 1fr; }
+}
+
+.podcast-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 0.7rem;
+  display: grid;
+  grid-template-rows: auto auto auto auto;
+  gap: 0.35rem;
+  min-height: 0;
+}
+
+.podcast-card .thumb {
+  width: 100%;
+  aspect-ratio: 1.6 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.3);
+}
+.podcast-card .thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+.podcast-card .title {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+}
+.podcast-card .meta {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.actions { display: flex; gap: 0.35rem; align-items: center; }
+.icon-btn {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.06);
+  display: grid; place-items: center; color: var(--text-primary);
+}
+
+/* Ensure all icons inherit a consistent size/color and alignment */
+.icon-btn .icon { width: 16px; height: 16px; color: var(--text-primary); }
+.icon::before, .icon::after { box-sizing: border-box; }
+
+/* Normalize icon colors to white */
+.icon, .icon::before, .icon::after { color: var(--text-primary); }
+
+/* Ensure play triangle is white inside action buttons */
+.icon-btn .icon-play::before { border-left-color: var(--text-primary) !important; }
+
+.icon-download::before {
+  content: ""; display: block; width: 14px; height: 14px; position: relative;
+  box-sizing: border-box; border-left: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.icon-menu::before {
+  content: ""; display: block; width: 16px; height: 2px; background: currentColor; box-shadow: 0 5px 0 currentColor, 0 -5px 0 currentColor;
+}
