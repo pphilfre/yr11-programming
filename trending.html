@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YR11 Radio — Trending</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="trending-page podcasts-page">
+    <div class="page">
+      <!-- Left sidebar reused -->
+      <aside class="left-sidebar" aria-label="Main navigation and player">
+        <nav class="left-nav">
+          <ul>
+            <li><a href="podcasts.html">PODCASTS</a></li>
+            <li><a href="trending.html" class="active">TRENDING</a></li>
+            <li><a href="genres.html">GENRE</a></li>
+            <li><a href="playlists.html">PLAYLISTS</a></li>
+            <li><a href="search.html">SEARCH</a></li>
+          </ul>
+        </nav>
+        <div class="mini-player">
+          <div class="mini-player-art">
+            <img src="public/logo.jpg" alt="The Carbon Algorithm" />
+          </div>
+          <p class="mini-player-title">The Carbon Algorithm</p>
+          <div class="mini-player-controls">
+            <button class="mini-control-btn" aria-label="Rewind"><span class="icon icon-rewind"></span></button>
+            <button class="mini-control-btn primary" aria-label="Play"><span class="icon icon-play"></span></button>
+            <button class="mini-control-btn" aria-label="Forward"><span class="icon icon-forward"></span></button>
+          </div>
+          <div class="mini-player-footer">
+            <button class="user-profile-btn" aria-label="User profile"><span class="icon icon-user"></span></button>
+            <button class="settings-btn" aria-label="Settings"><span class="icon icon-settings"></span></button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" aria-labelledby="trending-title">
+        <header class="podcasts-header">
+          <div>
+            <p class="eyebrow">Now</p>
+            <h1 id="trending-title" class="podcasts-title">Trending</h1>
+          </div>
+        </header>
+
+        <section class="trending-hero" aria-label="Top trending show">
+          <div class="trending-hero-art">
+            <img src="public/logo.jpg" alt="Featured trending show artwork" />
+          </div>
+          <div class="trending-hero-meta">
+            <h2 class="hero-title">The Carbon Algorithm</h2>
+            <p class="hero-tagline">Most streamed this week</p>
+            <div class="hero-actions">
+              <button class="icon-btn" aria-label="Play"><span class="icon icon-play"></span></button>
+              <button class="icon-btn" aria-label="Add to playlist"><span class="icon icon-menu"></span></button>
+              <button class="icon-btn" aria-label="Download"><span class="icon icon-download"></span></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="trending-sections" aria-label="Trending lists">
+          <div class="trending-group" aria-labelledby="top-10-heading">
+            <h3 id="top-10-heading" class="section-heading">Top 10 Podcasts</h3>
+            <ol class="ranked-list">
+              <li><span class="rank">1</span><span class="r-title">The Carbon Algorithm</span><span class="r-meta">+3</span></li>
+              <li><span class="rank">2</span><span class="r-title">Flicker &amp; Fade</span><span class="r-meta">+1</span></li>
+              <li><span class="rank">3</span><span class="r-title">Microwave for One</span><span class="r-meta down">-2</span></li>
+              <li><span class="rank">4</span><span class="r-title">Concrete &amp; Clover</span><span class="r-meta">+5</span></li>
+              <li><span class="rank">5</span><span class="r-title">The Alibi Weavers</span><span class="r-meta">+2</span></li>
+              <li><span class="rank">6</span><span class="r-title">Those Were the Days</span><span class="r-meta">new</span></li>
+              <li><span class="rank">7</span><span class="r-title">Neon Jungle</span><span class="r-meta down">-1</span></li>
+              <li><span class="rank">8</span><span class="r-title">Blank Slate</span><span class="r-meta">+4</span></li>
+              <li><span class="rank">9</span><span class="r-title">Venture Velocity</span><span class="r-meta down">-4</span></li>
+              <li><span class="rank">10</span><span class="r-title">Midnight Snack</span><span class="r-meta">+1</span></li>
+            </ol>
+          </div>
+
+          <div class="trending-group" aria-labelledby="rising-heading">
+            <h3 id="rising-heading" class="section-heading">Rising</h3>
+            <div class="mini-grid">
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Rising show art" /></div>
+                <h4 class="mini-title">Venture Velocity</h4>
+                <p class="mini-meta">+12 places</p>
+              </article>
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Rising show art" /></div>
+                <h4 class="mini-title">Blank Slate</h4>
+                <p class="mini-meta">+8 places</p>
+              </article>
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Rising show art" /></div>
+                <h4 class="mini-title">Neon Jungle</h4>
+                <p class="mini-meta">+6 places</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="trending-group" aria-labelledby="most-played-heading">
+            <h3 id="most-played-heading" class="section-heading">Most Played Today</h3>
+            <div class="mini-grid">
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Show art" /></div>
+                <h4 class="mini-title">The Carbon Algorithm</h4>
+                <p class="mini-meta">4.2k plays</p>
+              </article>
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Show art" /></div>
+                <h4 class="mini-title">Flicker &amp; Fade</h4>
+                <p class="mini-meta">3.1k plays</p>
+              </article>
+              <article class="mini-card">
+                <div class="mini-art"><img src="public/logo.jpg" alt="Show art" /></div>
+                <h4 class="mini-title">Concrete &amp; Clover</h4>
+                <p class="mini-meta">2.9k plays</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right sidebar reused -->
+      <aside class="nav-panel" aria-label="Primary navigation">
+        <div class="logo" aria-hidden="true">
+          <img src="public/logo.jpg" alt="YR11 logo" class="logo-image" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a class="active" href="podcasts.html">Podcasts</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a class="outline" href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </body>
+</html>

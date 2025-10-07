@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pop Podcasts — YR11 Radio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body class="podcasts-page genre-page pop-genre">
+    <div class="page">
+        <aside class="left-sidebar" aria-label="Main navigation and player">
+            <nav class="left-nav">
+                <ul>
+                    <li><a href="podcasts.html">PODCASTS</a></li>
+                    <li><a href="trending.html">TRENDING</a></li>
+                    <li><a class="active" href="genres.html">GENRE</a></li>
+                    <li><a href="playlists.html">PLAYLISTS</a></li>
+                    <li><a href="search.html">SEARCH</a></li>
+                </ul>
+            </nav>
+            <div class="mini-player">
+                <div class="mini-player-art"><img src="public/logo.jpg" alt="The Carbon Algorithm" /></div>
+                <p class="mini-player-title">The Carbon Algorithm</p>
+                <div class="mini-player-controls"><button class="mini-control-btn" aria-label="Rewind"><span
+                            class="icon icon-rewind"></span></button><button class="mini-control-btn primary"
+                        aria-label="Play"><span class="icon icon-play"></span></button><button class="mini-control-btn"
+                        aria-label="Forward"><span class="icon icon-forward"></span></button></div>
+                <div class="mini-player-footer"><button class="user-profile-btn" aria-label="User profile"><span
+                            class="icon icon-user"></span></button><button class="settings-btn"
+                        aria-label="Settings"><span class="icon icon-settings"></span></button></div>
+            </div>
+        </aside>
+        <main class="main-content" aria-labelledby="pop-title">
+            <header class="podcasts-header">
+                <div>
+                    <p class="eyebrow">Genre</p>
+                    <h1 id="pop-title" class="podcasts-title">Pop</h1>
+                </div>
+            </header>
+            <section class="podcast-grid" aria-label="Pop podcasts">
+                <article class="podcast-card">
+                    <div class="thumb"><img src="public/logo.jpg" alt="Pop Show" /></div>
+                    <h3 class="title">Velvet Nights</h3>
+                    <p class="meta">By Alicia Hart</p>
+                    <div class="actions"><button class="icon-btn" aria-label="Play"><span
+                                class="icon icon-play"></span></button><button class="icon-btn"
+                            aria-label="Download"><span class="icon icon-download"></span></button><button
+                            class="icon-btn" aria-label="More"><span class="icon icon-menu"></span></button></div>
+                </article>
+                <article class="podcast-card">
+                    <div class="thumb"><img src="public/logo.jpg" alt="Pop Show" /></div>
+                    <h3 class="title">Chart Sparks</h3>
+                    <p class="meta">By Emma Lane</p>
+                    <div class="actions"><button class="icon-btn" aria-label="Play"><span
+                                class="icon icon-play"></span></button><button class="icon-btn"
+                            aria-label="Download"><span class="icon icon-download"></span></button><button
+                            class="icon-btn" aria-label="More"><span class="icon icon-menu"></span></button></div>
+                </article>
+            </section>
+        </main>
+        <aside class="nav-panel" aria-label="Primary navigation">
+            <div class="logo" aria-hidden="true"><img src="public/logo.jpg" alt="YR11 logo" class="logo-image" /></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="podcasts.html">Podcasts</a></li>
+                    <li><a href="trending.html">Trending</a></li>
+                    <li><a class="active" href="genres.html">Genres</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a class="outline" href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </aside>
+    </div>
+</body>
+
+</html>

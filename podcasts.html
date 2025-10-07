@@ -15,6 +15,44 @@
   </head>
   <body class="podcasts-page">
     <div class="page">
+      <aside class="left-sidebar" aria-label="Main navigation and player">
+        <nav class="left-nav">
+          <ul>
+            <li><a href="podcasts.html" class="active">PODCASTS</a></li>
+            <li><a href="trending.html">TRENDING</a></li>
+            <li><a href="genres.html">GENRE</a></li>
+            <li><a href="playlists.html">PLAYLISTS</a></li>
+            <li><a href="search.html">SEARCH</a></li>
+          </ul>
+        </nav>
+
+        <div class="mini-player">
+          <div class="mini-player-art">
+            <img src="public/logo.jpg" alt="The Carbon Algorithm" />
+          </div>
+          <p class="mini-player-title">The Carbon Algorithm</p>
+          <div class="mini-player-controls">
+            <button class="mini-control-btn" aria-label="Rewind">
+              <span class="icon icon-rewind"></span>
+            </button>
+            <button class="mini-control-btn primary" aria-label="Play">
+              <span class="icon icon-play"></span>
+            </button>
+            <button class="mini-control-btn" aria-label="Forward">
+              <span class="icon icon-forward"></span>
+            </button>
+          </div>
+          <div class="mini-player-footer">
+            <button class="user-profile-btn" aria-label="User profile">
+              <span class="icon icon-user"></span>
+            </button>
+            <button class="settings-btn" aria-label="Settings">
+              <span class="icon icon-settings"></span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
       <main class="main-content" aria-labelledby="podcasts-title">
         <header class="podcasts-header">
           <div>
@@ -29,11 +67,11 @@
             <input type="search" placeholder="Search..." aria-label="Search podcasts" />
           </label>
           <div class="genres" role="list" aria-label="Genres">
-            <button class="chip active" role="listitem" aria-pressed="true">Rock</button>
-            <button class="chip purple" role="listitem">Pop</button>
-            <button class="chip olive" role="listitem">Jazz</button>
-            <button class="chip dark" role="listitem">Drill</button>
-            <button class="chip" role="listitem">Indie</button>
+            <a class="chip active" role="listitem" aria-current="page" href="genre-rock.html">Rock</a>
+            <a class="chip purple" role="listitem" href="genre-pop.html">Pop</a>
+            <a class="chip olive" role="listitem" href="genre-jazz.html">Jazz</a>
+            <a class="chip dark" role="listitem" href="genre-drill.html">Drill</a>
+            <a class="chip" role="listitem" href="genre-indie.html">Indie</a>
           </div>
         </div>
 
@@ -166,4 +204,4 @@
       </aside>
     </div>
   </body>
-  </html>
+</html>
