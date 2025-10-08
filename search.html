@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YR11 Radio — Search</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="search-page">
+    <div class="page">
+      <!-- Left Sidebar (same as podcasts) -->
+      <aside class="left-sidebar" aria-label="Main navigation and player">
+        <nav class="left-nav">
+          <ul>
+            <li><a href="podcasts.html">PODCASTS</a></li>
+            <li><a href="trending.html">TRENDING</a></li>
+            <li><a href="genres.html">GENRE</a></li>
+            <li><a href="playlists.html">PLAYLISTS</a></li>
+            <li><a class="active" href="search.html">SEARCH</a></li>
+          </ul>
+        </nav>
+        <div class="mini-player">
+          <div class="mini-player-art"><img src="public/logo.jpg" alt="Current art" /></div>
+          <p class="mini-player-title">The Carbon Algorithm</p>
+          <div class="mini-player-controls">
+            <button class="mini-control-btn" aria-label="Rewind"><span class="icon icon-rewind"></span></button>
+            <button class="mini-control-btn primary" aria-label="Play"><span class="icon icon-play"></span></button>
+            <button class="mini-control-btn" aria-label="Forward"><span class="icon icon-forward"></span></button>
+          </div>
+          <div class="mini-player-footer">
+            <button class="user-profile-btn" aria-label="User profile"><span class="icon icon-user"></span></button>
+            <button class="settings-btn" aria-label="Settings"><span class="icon icon-settings"></span></button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" aria-labelledby="search-title">
+        <header class="search-header">
+          <div>
+            <p class="eyebrow">Explore</p>
+            <h1 id="search-title" class="search-title">Search</h1>
+          </div>
+        </header>
+
+        <div class="search-suite" aria-label="Search controls">
+          <label class="search" aria-label="Search library">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input class="global-search-input" type="search" placeholder="Search podcasts, artists, playlists..." aria-label="Search podcasts, artists, playlists" />
+          </label>
+          <div class="search-filters" role="radiogroup" aria-label="Filter category">
+            <button class="chip active" data-filter="all" role="radio" aria-checked="true">All</button>
+            <button class="chip" data-filter="podcasts" role="radio" aria-checked="false">Podcasts</button>
+            <button class="chip" data-filter="artists" role="radio" aria-checked="false">Artists</button>
+            <button class="chip" data-filter="playlists" role="radio" aria-checked="false">Playlists</button>
+          </div>
+          <div class="search-status" aria-live="polite"></div>
+        </div>
+
+        <section class="search-results" aria-label="Search results">
+          <!-- Podcasts -->
+          <div class="search-group" data-group="podcasts">
+            <h2 class="group-heading">Podcasts</h2>
+            <div class="results-grid" data-type="podcasts">
+              <a href="#" class="result-card" data-name="The Carbon Algorithm" data-type="podcast"><span class="r-title">The Carbon Algorithm</span><span class="r-meta">Podcast · Robert Fox</span></a>
+              <a href="#" class="result-card" data-name="Flicker & Fade" data-type="podcast"><span class="r-title">Flicker & Fade</span><span class="r-meta">Podcast · Annette Black</span></a>
+              <a href="#" class="result-card" data-name="Microwave for One" data-type="podcast"><span class="r-title">Microwave for One</span><span class="r-meta">Podcast · Dianne Russell</span></a>
+              <a href="#" class="result-card" data-name="The Alibi Weavers" data-type="podcast"><span class="r-title">The Alibi Weavers</span><span class="r-meta">Podcast · Darrell Stewart</span></a>
+              <a href="#" class="result-card" data-name="Concrete & Clover" data-type="podcast"><span class="r-title">Concrete & Clover</span><span class="r-meta">Podcast · Krista Watson</span></a>
+              <a href="#" class="result-card" data-name="The Midnight Snack" data-type="podcast"><span class="r-title">The Midnight Snack</span><span class="r-meta">Podcast · Dorian Lane</span></a>
+              <a href="#" class="result-card" data-name="Blank Slate" data-type="podcast"><span class="r-title">Blank Slate</span><span class="r-meta">Podcast · Glenn Peter</span></a>
+              <a href="#" class="result-card" data-name="The Neon Jungle" data-type="podcast"><span class="r-title">The Neon Jungle</span><span class="r-meta">Podcast · Jane Cooper</span></a>
+              <a href="#" class="result-card" data-name="Venture Velocity" data-type="podcast"><span class="r-title">Venture Velocity</span><span class="r-meta">Podcast · Wade Warren</span></a>
+            </div>
+          </div>
+
+          <!-- Artists -->
+          <div class="search-group" data-group="artists">
+            <h2 class="group-heading">Artists</h2>
+            <div class="results-grid" data-type="artists">
+              <a href="#" class="result-card" data-name="Robert Fox" data-type="artist"><span class="r-title">Robert Fox</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Annette Black" data-type="artist"><span class="r-title">Annette Black</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Dianne Russell" data-type="artist"><span class="r-title">Dianne Russell</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Darrell Stewart" data-type="artist"><span class="r-title">Darrell Stewart</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Krista Watson" data-type="artist"><span class="r-title">Krista Watson</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Dorian Lane" data-type="artist"><span class="r-title">Dorian Lane</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Glenn Peter" data-type="artist"><span class="r-title">Glenn Peter</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Jane Cooper" data-type="artist"><span class="r-title">Jane Cooper</span><span class="r-meta">Artist</span></a>
+              <a href="#" class="result-card" data-name="Wade Warren" data-type="artist"><span class="r-title">Wade Warren</span><span class="r-meta">Artist</span></a>
+            </div>
+          </div>
+
+          <!-- Playlists -->
+            <div class="search-group" data-group="playlists">
+            <h2 class="group-heading">Playlists</h2>
+            <div class="results-grid" data-type="playlists">
+              <a href="#" class="result-card" data-name="Focus Flow" data-type="playlist"><span class="r-title">Focus Flow</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Study Marathon" data-type="playlist"><span class="r-title">Study Marathon</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Midnight Chill" data-type="playlist"><span class="r-title">Midnight Chill</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Morning Energy" data-type="playlist"><span class="r-title">Morning Energy</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Retro Throwbacks" data-type="playlist"><span class="r-title">Retro Throwbacks</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Night Drive" data-type="playlist"><span class="r-title">Night Drive</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Gym Power" data-type="playlist"><span class="r-title">Gym Power</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Deep Calm" data-type="playlist"><span class="r-title">Deep Calm</span><span class="r-meta">Playlist</span></a>
+              <a href="#" class="result-card" data-name="Code Stream" data-type="playlist"><span class="r-title">Code Stream</span><span class="r-meta">Playlist</span></a>
+            </div>
+          </div>
+        </section>
+        <p class="search-empty" hidden>No results.</p>
+      </main>
+
+      <!-- Right navigation panel (same as podcasts) -->
+      <aside class="nav-panel" aria-label="Primary navigation">
+        <div class="logo" aria-hidden="true">
+          <img src="public/logo.jpg" alt="YR11 logo" class="logo-image" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a class="outline" href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </body>
+</html>

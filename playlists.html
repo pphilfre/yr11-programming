@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YR11 Radio — Playlists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="playlists-page">
+    <div class="page">
+      <!-- Left Sidebar (reuse) -->
+      <aside class="left-sidebar" aria-label="Main navigation and player">
+        <nav class="left-nav">
+          <ul>
+            <li><a href="podcasts.html">PODCASTS</a></li>
+            <li><a href="trending.html">TRENDING</a></li>
+            <li><a href="genres.html">GENRE</a></li>
+            <li><a class="active" href="playlists.html">PLAYLISTS</a></li>
+            <li><a href="search.html">SEARCH</a></li>
+          </ul>
+        </nav>
+        <div class="mini-player">
+          <div class="mini-player-art"><img src="public/logo.jpg" alt="Current playlist art" /></div>
+          <p class="mini-player-title">The Carbon Algorithm</p>
+          <div class="mini-player-controls">
+            <button class="mini-control-btn" aria-label="Rewind"><span class="icon icon-rewind"></span></button>
+            <button class="mini-control-btn primary" aria-label="Play"><span class="icon icon-play"></span></button>
+            <button class="mini-control-btn" aria-label="Forward"><span class="icon icon-forward"></span></button>
+          </div>
+          <div class="mini-player-footer">
+            <button class="user-profile-btn" aria-label="User profile"><span class="icon icon-user"></span></button>
+            <button class="settings-btn" aria-label="Settings"><span class="icon icon-settings"></span></button>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content" aria-labelledby="playlists-title">
+        <header class="playlists-header">
+          <div>
+            <p class="eyebrow">Library</p>
+            <h1 id="playlists-title" class="playlists-title">Playlists</h1>
+          </div>
+        </header>
+
+        <div class="playlists-toolbar" aria-label="Search your playlists">
+          <label class="search playlist-search" aria-label="Search playlists">
+            <span class="search-icon" aria-hidden="true"></span>
+            <input class="playlist-search-input" type="search" placeholder="Search your playlists..." aria-label="Search your playlists" />
+          </label>
+          <div class="playlist-status" aria-live="polite"></div>
+        </div>
+
+        <section class="playlist-grid" aria-label="Your playlists">
+          <!-- Example playlist tiles with data attributes -->
+          <a href="#" class="playlist-tile mix" data-name="Focus Flow" data-duration="1h 42m" data-tracks="Deep Focus Intro|3:12;Lo-Fi Layer|2:58;Synth Drift|4:10;Ambient Node|5:02;Memory Loop|3:44;Ocean Logic|2:55" data-art="public/logo.jpg">
+            <span>Focus Flow</span>
+          </a>
+          <a href="#" class="playlist-tile study" data-name="Study Marathon" data-duration="2h 05m" data-tracks="Page Turner|2:44;Highlight Marker|3:01;Quiet Theory|4:22;Notebook Echo|3:36;Revision Rain|5:10" data-art="public/logo.jpg">
+            <span>Study Marathon</span>
+          </a>
+          <a href="#" class="playlist-tile chill" data-name="Midnight Chill" data-duration="56m" data-tracks="Moonlit Desk|2:42;Soft Static|3:05;Night Window|4:00;Sleepless Glow|3:33;Lavender Tape|5:07" data-art="public/logo.jpg">
+            <span>Midnight Chill</span>
+          </a>
+          <a href="#" class="playlist-tile energy" data-name="Morning Energy" data-duration="1h 11m" data-tracks="Alarm Sparks|2:15;Sunrise Fuel|3:11;Boost Mode|2:59;Sky Sprint|3:40;Coffee Kick|2:52" data-art="public/logo.jpg">
+            <span>Morning Energy</span>
+          </a>
+          <a href="#" class="playlist-tile throwback" data-name="Retro Throwbacks" data-duration="1h 27m" data-tracks="Pixel Skate|2:34;CRT Dream|3:12;Cassette Flip|3:50;Neon Hallway|4:05;Arcade Alley|3:46" data-art="public/logo.jpg">
+            <span>Retro Throwbacks</span>
+          </a>
+          <a href="#" class="playlist-tile drive" data-name="Night Drive" data-duration="1h 04m" data-tracks="Motor Pulse|3:31;Passing Lights|4:02;Mirror Lines|3:14;Highway Ghost|5:10;Signal Fade|2:56" data-art="public/logo.jpg">
+            <span>Night Drive</span>
+          </a>
+          <a href="#" class="playlist-tile gym" data-name="Gym Power" data-duration="48m" data-tracks="Barbell Start|2:10;Set Surge|3:05;Rep Machine|3:40;Final Push|4:11;Cooldown Path|3:22" data-art="public/logo.jpg">
+            <span>Gym Power</span>
+          </a>
+          <a href="#" class="playlist-tile calm" data-name="Deep Calm" data-duration="1h 20m" data-tracks="Still Surface|4:12;Weightless Thought|5:00;Slow Spiral|6:01;Glass Tides|4:44;Far Beacon|5:27" data-art="public/logo.jpg">
+            <span>Deep Calm</span>
+          </a>
+          <a href="#" class="playlist-tile coding" data-name="Code Stream" data-duration="2h 15m" data-tracks="Boot Sequence|2:22;Compile Loop|3:15;Stack Trace|4:05;Async Flow|3:56;Deploy Pulse|3:18" data-art="public/logo.jpg">
+            <span>Code Stream</span>
+          </a>
+        </section>
+        <p class="playlist-empty" hidden>No playlists match your search.</p>
+      </main>
+
+      <!-- Right navigation panel reuse -->
+      <aside class="nav-panel" aria-label="Primary navigation">
+        <div class="logo" aria-hidden="true">
+          <img src="public/logo.jpg" alt="YR11 logo" class="logo-image" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a class="outline" href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- Playlist Detail Modal -->
+    <div class="modal-overlay" id="playlist-modal" aria-hidden="true">
+      <div class="modal playlist-modal" role="dialog" aria-modal="true" aria-labelledby="playlist-modal-title">
+        <button class="modal-close" aria-label="Close dialog">✕</button>
+        <header class="modal-header">
+          <div class="modal-badge">Playlist</div>
+          <h3 id="playlist-modal-title"></h3>
+          <p class="modal-artist" id="playlist-modal-duration"></p>
+        </header>
+        <div class="modal-body playlist-modal-body">
+          <div class="playlist-art-wrapper"><img id="playlist-modal-art" alt="" /></div>
+          <div class="playlist-modal-content">
+            <ol class="playlist-tracks" id="playlist-modal-tracks" aria-label="Track list"></ol>
+          </div>
+        </div>
+        <div class="modal-actions playlist-actions">
+          <button class="btn primary" id="playlist-play-btn" type="button"><span class="icon icon-play"></span> Play</button>
+          <button class="btn" data-close-playlist>Close</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
