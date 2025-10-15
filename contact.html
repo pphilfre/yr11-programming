@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YR11 Radio — Contact Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Unica+One&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="contact-page">
+    <div class="page">
+      <main class="main-content" aria-labelledby="contact-title">
+        <header class="contact-header">
+          <p class="eyebrow contact-eyebrow">Let's talk</p>
+          <h1 id="contact-title" class="contact-title">Contact the Studio</h1>
+          <p class="contact-subtitle">Drop us a line for requests, shout-outs, collaborations, or press. We monitor our inbox 7 days a week during broadcast hours.</p>
+
+          <dl class="contact-stats" aria-label="Response time stats">
+            <div>
+              <dt>Average reply</dt>
+              <dd>under 2 hours</dd>
+            </div>
+            <div>
+              <dt>Studio hotline</dt>
+              <dd>0191 555 1122</dd>
+            </div>
+            <div>
+              <dt>Live desk</dt>
+              <dd>Weekdays 8:00–22:00</dd>
+            </div>
+          </dl>
+        </header>
+
+        <section class="contact-layout">
+          <section class="contact-methods" aria-label="Ways to reach us">
+            <article class="contact-card">
+              <h2>Listener Hotline</h2>
+              <p>Call during live shows to queue a song, share a story, or deliver a campus tip.</p>
+              <ul>
+                <li><span aria-hidden="true">☎</span> 0191 555 1122</li>
+                <li><span aria-hidden="true">⏱</span> Weekdays 7:00–23:00</li>
+              </ul>
+              <button class="btn outline" type="button">Add to Contacts</button>
+            </article>
+
+            <article class="contact-card">
+              <h2>Bookings &amp; Collaborations</h2>
+              <p>Looking to appear on air or host your own hour? Pitch your idea and our programming team will follow up.</p>
+              <ul>
+                <li><span aria-hidden="true">✉</span> collaborations@yr11.fm</li>
+                <li><span aria-hidden="true">📅</span> Slots released monthly</li>
+              </ul>
+              <button class="btn" type="button">View open slots</button>
+            </article>
+
+            <article class="contact-card">
+              <h2>Visit the Studio</h2>
+              <p>Drop by our media lab for tours, workshops, and student newsroom drop-ins.</p>
+              <ul>
+                <li><span aria-hidden="true">📍</span> Media Lab, Building C</li>
+                <li><span aria-hidden="true">🗓</span> Tours Friday 16:00</li>
+              </ul>
+              <button class="btn outline" type="button">Book a tour</button>
+            </article>
+          </section>
+
+          <section class="contact-form-section" aria-labelledby="contact-form-title">
+            <div class="contact-form-wrapper">
+              <h2 id="contact-form-title">Send us a message</h2>
+              <p class="contact-form-subtitle">Fill in the form and we’ll reply from <strong>studio@yr11.fm</strong>. All fields are required.</p>
+
+              <form class="contact-form" aria-describedby="contact-form-title">
+                <div class="field-group">
+                  <label for="contact-name">Name</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required />
+                </div>
+
+                <div class="field-group">
+                  <label for="contact-email">Email</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" required />
+                </div>
+
+                <fieldset class="field-group" aria-labelledby="contact-reason-label">
+                  <legend id="contact-reason-label">Reason for reaching out</legend>
+                  <div class="chip-group" role="radiogroup" aria-labelledby="contact-reason-label">
+                    <label class="chip-option">
+                      <input type="radio" name="reason" value="request" required />
+                      <span>Song request</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="reason" value="shoutout" />
+                      <span>Shout-out</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="reason" value="collaboration" />
+                      <span>Collaboration</span>
+                    </label>
+                    <label class="chip-option">
+                      <input type="radio" name="reason" value="press" />
+                      <span>Press / media</span>
+                    </label>
+                  </div>
+                </fieldset>
+
+                <div class="field-group">
+                  <label for="contact-message">Message</label>
+                  <textarea id="contact-message" name="message" rows="6" required></textarea>
+                </div>
+
+                <div class="field-inline">
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="subscribe" value="updates" />
+                    <span>Keep me posted about campus events</span>
+                  </label>
+                  <label class="checkbox-option">
+                    <input type="checkbox" name="subscribe" value="podcasts" />
+                    <span>Send new podcast drops</span>
+                  </label>
+                </div>
+
+                <div class="field-group">
+                  <label for="contact-preferred">Preferred response channel</label>
+                  <select id="contact-preferred" name="preferred" class="profile-select contact-select" required>
+                    <option value="email" selected>Email</option>
+                    <option value="phone">Phone</option>
+                    <option value="teams">Campus Teams</option>
+                  </select>
+                </div>
+
+                <button class="btn contact-submit" type="submit">Submit message</button>
+                <p class="contact-footnote" id="contact-footnote" role="status" aria-live="polite">Responses arrive from studio@yr11.fm.</p>
+              </form>
+            </div>
+          </section>
+        </section>
+      </main>
+
+      <aside class="nav-panel" aria-label="Primary navigation">
+        <div class="logo" aria-hidden="true">
+          <img src="public/logo.jpg" alt="YR11 logo" class="logo-image" />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="podcasts.html">Podcasts</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a class="outline active" href="contact.html">Contact Us</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </body>
+</html>

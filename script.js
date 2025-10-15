@@ -430,87 +430,89 @@
           <p class="settings-subtitle">Tune how YR11 Radio behaves across every podcast page.</p>
         </header>
 
-        <section class="settings-section profile-section" aria-labelledby="settings-profile-title">
-          <div class="section-head">
-            <h3 id="settings-profile-title">Profile</h3>
-            <span class="section-badge">Active</span>
+        <div class="settings-scroll" role="group" aria-label="Settings options">
+          <section class="settings-section profile-section" aria-labelledby="settings-profile-title">
+            <div class="section-head">
+              <h3 id="settings-profile-title">Profile</h3>
+              <span class="section-badge">Active</span>
+            </div>
+            <p class="profile-current">Signed in as <strong>Jordan Rivera</strong></p>
+            <p class="profile-role">Student DJ access • Studio booth 2 clearance</p>
+            <div class="settings-actions">
+              <button class="btn outline profile-view" type="button">View profile</button>
+              <button class="btn profile-edit" type="button">Edit badge</button>
+            </div>
+          </section>
+
+          <section class="settings-section preferences-section" aria-labelledby="settings-preferences-title">
+            <h3 id="settings-preferences-title">Preferences</h3>
+            <ul class="settings-toggle-list">
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">Autoplay next episode</span>
+                  <p>Keep the show rolling when an episode ends.</p>
+                </div>
+                <button class="toggle-btn is-on" type="button" aria-pressed="true" data-label="Autoplay next episode">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">On</span>
+                </button>
+              </li>
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">Ambient studio glow</span>
+                  <p>Add subtle lighting animations while listening.</p>
+                </div>
+                <button class="toggle-btn" type="button" aria-pressed="false" data-label="Ambient studio glow">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">Off</span>
+                </button>
+              </li>
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">New episode alerts</span>
+                  <p>Send me a ping when favourite shows publish.</p>
+                </div>
+                <button class="toggle-btn is-on" type="button" aria-pressed="true" data-label="New episode alerts">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">On</span>
+                </button>
+              </li>
+            </ul>
+          </section>
+
+          <section class="settings-section account-section" aria-labelledby="settings-account-title">
+            <h3 id="settings-account-title">Account settings</h3>
+            <div class="settings-links">
+              <button class="settings-link" type="button" data-action="plan">Manage plan</button>
+              <button class="settings-link" type="button" data-action="billing">Update billing</button>
+              <button class="settings-link" type="button" data-action="devices">Connected devices</button>
+            </div>
+          </section>
+
+          <section class="settings-section support-section" aria-labelledby="settings-support-title">
+            <h3 id="settings-support-title">Support</h3>
+            <p>Need a hand? Reach out and the studio managers on duty will answer fast.</p>
+            <div class="settings-actions">
+              <button class="btn outline support-action" type="button" data-action="chat">Start live support</button>
+              <button class="btn support-action" type="button" data-action="guide">Browse help guide</button>
+            </div>
+          </section>
+
+          <section class="settings-section switch-section" aria-labelledby="settings-switch-title">
+            <h3 id="settings-switch-title">Switch profile</h3>
+            <p>Jump into a different studio identity for scheduled takeovers.</p>
+            <label class="switch-label" for="settings-profile-select">Active profile</label>
+            <select id="settings-profile-select" class="profile-select" aria-describedby="settings-live">
+              <option value="Jordan Rivera" selected>Jordan Rivera — Student DJ</option>
+              <option value="Maya Chen">Maya Chen — Newsroom Anchor</option>
+              <option value="Studio Guest">Studio Guest — Visiting Host</option>
+            </select>
+          </section>
+
+          <div class="settings-footer">
+            <button class="btn danger sign-out-btn" type="button">Sign out</button>
+            <p class="settings-footnote" id="settings-live" role="status" aria-live="polite">All changes save automatically.</p>
           </div>
-          <p class="profile-current">Signed in as <strong>Jordan Rivera</strong></p>
-          <p class="profile-role">Student DJ access • Studio booth 2 clearance</p>
-          <div class="settings-actions">
-            <button class="btn outline profile-view" type="button">View profile</button>
-            <button class="btn profile-edit" type="button">Edit badge</button>
-          </div>
-        </section>
-
-        <section class="settings-section preferences-section" aria-labelledby="settings-preferences-title">
-          <h3 id="settings-preferences-title">Preferences</h3>
-          <ul class="settings-toggle-list">
-            <li class="settings-toggle">
-              <div class="toggle-copy">
-                <span class="toggle-label">Autoplay next episode</span>
-                <p>Keep the show rolling when an episode ends.</p>
-              </div>
-              <button class="toggle-btn is-on" type="button" aria-pressed="true" data-label="Autoplay next episode">
-                <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span class="toggle-state" aria-hidden="true">On</span>
-              </button>
-            </li>
-            <li class="settings-toggle">
-              <div class="toggle-copy">
-                <span class="toggle-label">Ambient studio glow</span>
-                <p>Add subtle lighting animations while listening.</p>
-              </div>
-              <button class="toggle-btn" type="button" aria-pressed="false" data-label="Ambient studio glow">
-                <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span class="toggle-state" aria-hidden="true">Off</span>
-              </button>
-            </li>
-            <li class="settings-toggle">
-              <div class="toggle-copy">
-                <span class="toggle-label">New episode alerts</span>
-                <p>Send me a ping when favourite shows publish.</p>
-              </div>
-              <button class="toggle-btn is-on" type="button" aria-pressed="true" data-label="New episode alerts">
-                <span class="toggle-track"><span class="toggle-thumb"></span></span>
-                <span class="toggle-state" aria-hidden="true">On</span>
-              </button>
-            </li>
-          </ul>
-        </section>
-
-        <section class="settings-section account-section" aria-labelledby="settings-account-title">
-          <h3 id="settings-account-title">Account settings</h3>
-          <div class="settings-links">
-            <button class="settings-link" type="button" data-action="plan">Manage plan</button>
-            <button class="settings-link" type="button" data-action="billing">Update billing</button>
-            <button class="settings-link" type="button" data-action="devices">Connected devices</button>
-          </div>
-        </section>
-
-        <section class="settings-section support-section" aria-labelledby="settings-support-title">
-          <h3 id="settings-support-title">Support</h3>
-          <p>Need a hand? Reach out and the studio managers on duty will answer fast.</p>
-          <div class="settings-actions">
-            <button class="btn outline support-action" type="button" data-action="chat">Start live support</button>
-            <button class="btn support-action" type="button" data-action="guide">Browse help guide</button>
-          </div>
-        </section>
-
-        <section class="settings-section switch-section" aria-labelledby="settings-switch-title">
-          <h3 id="settings-switch-title">Switch profile</h3>
-          <p>Jump into a different studio identity for scheduled takeovers.</p>
-          <label class="switch-label" for="settings-profile-select">Active profile</label>
-          <select id="settings-profile-select" class="profile-select" aria-describedby="settings-live">
-            <option value="Jordan Rivera" selected>Jordan Rivera — Student DJ</option>
-            <option value="Maya Chen">Maya Chen — Newsroom Anchor</option>
-            <option value="Studio Guest">Studio Guest — Visiting Host</option>
-          </select>
-        </section>
-
-        <div class="settings-footer">
-          <button class="btn danger sign-out-btn" type="button">Sign out</button>
-          <p class="settings-footnote" id="settings-live" role="status" aria-live="polite">All changes save automatically.</p>
         </div>
       </div>
     `;
@@ -659,5 +661,310 @@
 
   signOutBtn?.addEventListener('click', () => {
     announce('Sign out request queued. (Demo copy — no action)');
+  });
+})();
+
+// Profile modal overlay logic (user icon)
+(() => {
+  const triggers = Array.from(document.querySelectorAll('.user-profile-btn'));
+  if (!triggers.length) return;
+
+  let overlay = document.getElementById('profile-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'modal-overlay profile-overlay';
+    overlay.id = 'profile-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.innerHTML = `
+      <div class="modal profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title" tabindex="-1">
+        <button class="modal-close profile-close" type="button" aria-label="Close profile">✕</button>
+        <header class="profile-header">
+          <p class="eyebrow profile-eyebrow">On air identity</p>
+          <h2 id="profile-title">Jordan Rivera</h2>
+          <p class="profile-subtitle">Student DJ • YR11 Radio Lab • Broadcasting since 2023</p>
+        </header>
+
+        <div class="profile-scroll" role="group" aria-label="Profile sections">
+          <section class="profile-section identity-section" aria-labelledby="profile-identity-title">
+            <div class="identity-card">
+              <div class="identity-main">
+                <div class="profile-avatar">
+                  <img src="public/logo.jpg" alt="Jordan Rivera avatar" />
+                  <button class="avatar-action" type="button">Update avatar</button>
+                </div>
+                <div class="identity-body">
+                  <h3 id="profile-identity-title">Studio presence</h3>
+                  <p class="identity-tagline">Mixing future beats &amp; midnight study aids for campus listeners.</p>
+                  <div class="identity-meta">
+                    <label for="profile-presence" class="identity-label">Pronouns</label>
+                    <select id="profile-presence" class="identity-select profile-select">
+                      <option value="they/them" selected>They/Them</option>
+                      <option value="she/her">She/Her</option>
+                      <option value="he/him">He/Him</option>
+                      <option value="custom">Custom...</option>
+                    </select>
+                  </div>
+                  <div class="identity-actions">
+                    <button class="btn outline profile-copy" type="button">Copy profile link</button>
+                    <button class="btn profile-download" type="button">Download show reel</button>
+                  </div>
+                </div>
+              </div>
+              <dl class="identity-stats">
+                <div>
+                  <dt>Followers</dt>
+                  <dd>12.4k</dd>
+                </div>
+                <div>
+                  <dt>Weekly hours</dt>
+                  <dd>9 hrs</dd>
+                </div>
+                <div>
+                  <dt>Live segments</dt>
+                  <dd>32</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+
+          <section class="profile-section activity-section" aria-labelledby="profile-activity-title">
+            <h3 id="profile-activity-title">Recent activity</h3>
+            <ul class="activity-timeline">
+              <li>
+                <div>
+                  <p class="activity-title">Scheduled "Synthwave Skylines" for Friday</p>
+                  <p class="activity-meta">2 hours ago · playlist refresh locked in</p>
+                </div>
+                <button class="timeline-cta" type="button">View rundown</button>
+              </li>
+              <li>
+                <div>
+                  <p class="activity-title">Answered 14 listener requests</p>
+                  <p class="activity-meta">Yesterday · queued for late night blend</p>
+                </div>
+                <button class="timeline-cta" type="button">Open inbox</button>
+              </li>
+              <li>
+                <div>
+                  <p class="activity-title">Uploaded "Campus Coffee Shop" mini-interview</p>
+                  <p class="activity-meta">Mar 28 · studio 2 production suite</p>
+                </div>
+                <button class="timeline-cta" type="button">Play clip</button>
+              </li>
+            </ul>
+          </section>
+
+          <section class="profile-section badges-section" aria-labelledby="profile-badges-title">
+            <h3 id="profile-badges-title">Achievements</h3>
+            <div class="badge-grid">
+              <span class="badge-chip">All-night marathon</span>
+              <span class="badge-chip">Listener darling</span>
+              <span class="badge-chip">Studio mentor</span>
+              <span class="badge-chip">Sound design wiz</span>
+              <span class="badge-chip">Top 10 chart</span>
+            </div>
+          </section>
+
+          <section class="profile-section availability-section" aria-labelledby="profile-availability-title">
+            <h3 id="profile-availability-title">Availability</h3>
+            <ul class="settings-toggle-list">
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">Open to guest segments</span>
+                  <p>Let producers drop you into collaborative shows.</p>
+                </div>
+                <button class="toggle-btn is-on profile-toggle" type="button" aria-pressed="true" data-label="Guest segments">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">On</span>
+                </button>
+              </li>
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">Show online status</span>
+                  <p>Display when you're live editing from the booth.</p>
+                </div>
+                <button class="toggle-btn profile-toggle" type="button" aria-pressed="false" data-label="Online status">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">Off</span>
+                </button>
+              </li>
+              <li class="settings-toggle">
+                <div class="toggle-copy">
+                  <span class="toggle-label">Auto-share tracklists</span>
+                  <p>Publish playlists after each broadcast session.</p>
+                </div>
+                <button class="toggle-btn is-on profile-toggle" type="button" aria-pressed="true" data-label="Tracklists">
+                  <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                  <span class="toggle-state" aria-hidden="true">On</span>
+                </button>
+              </li>
+            </ul>
+          </section>
+
+          <section class="profile-section access-section" aria-labelledby="profile-access-title">
+            <h3 id="profile-access-title">Studio access</h3>
+            <div class="access-grid">
+              <article>
+                <h4>Studios</h4>
+                <ul>
+                  <li>Studio Booth 1 — Live broadcast</li>
+                  <li>Studio Booth 2 — Production suite</li>
+                  <li>Podcast Lab — Reserved Thursdays</li>
+                </ul>
+              </article>
+              <article>
+                <h4>Equipment locker</h4>
+                <ul>
+                  <li>Shure SM7B mic — Checked out</li>
+                  <li>Zoom H5 recorder — Due back Fri</li>
+                  <li>LED light kit — Available</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <div class="profile-footer">
+            <div class="profile-footer-actions">
+              <button class="btn outline profile-edit" type="button">Edit profile</button>
+              <button class="btn profile-schedule" type="button">View my schedule</button>
+            </div>
+            <p class="profile-footnote" id="profile-live" role="status" aria-live="polite">Profile synced with campus directory.</p>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+  }
+
+  const panel = overlay.querySelector('.profile-modal');
+  const closeBtn = overlay.querySelector('.profile-close');
+  const statusRegion = overlay.querySelector('#profile-live');
+  const focusableSelector = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
+  const toggles = Array.from(overlay.querySelectorAll('.profile-toggle'));
+  const selectPronoun = overlay.querySelector('#profile-presence');
+  const avatarBtn = overlay.querySelector('.avatar-action');
+  const copyBtn = overlay.querySelector('.profile-copy');
+  const downloadBtn = overlay.querySelector('.profile-download');
+  const timelineButtons = Array.from(overlay.querySelectorAll('.timeline-cta'));
+  const footerButtons = Array.from(overlay.querySelectorAll('.profile-footer-actions .btn'));
+
+  let lastFocused = null;
+  let activeTrigger = null;
+  let detachKeyHandler = null;
+
+  const announce = (message) => {
+    if (statusRegion) statusRegion.textContent = message;
+  };
+
+  const setExpanded = (trigger) => {
+    triggers.forEach((btn) => btn.setAttribute('aria-expanded', btn === trigger ? 'true' : 'false'));
+  };
+
+  const closeProfile = () => {
+    overlay.setAttribute('aria-hidden', 'true');
+    overlay.classList.remove('is-active');
+    detachKeyHandler?.();
+    detachKeyHandler = null;
+    document.body.style.overflow = '';
+    setExpanded(null);
+    announce('Profile panel closed.');
+    const focusTarget = activeTrigger || lastFocused;
+    if (focusTarget && typeof focusTarget.focus === 'function') focusTarget.focus();
+    activeTrigger = null;
+  };
+
+  const trapFocus = () => {
+    const handler = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeProfile();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const focusable = Array.from(overlay.querySelectorAll(focusableSelector));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    overlay.addEventListener('keydown', handler);
+    detachKeyHandler = () => overlay.removeEventListener('keydown', handler);
+  };
+
+  const openProfile = (trigger) => {
+    if (overlay.getAttribute('aria-hidden') === 'false') return;
+    lastFocused = document.activeElement;
+    activeTrigger = trigger || null;
+    setExpanded(activeTrigger);
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    panel?.focus();
+    trapFocus();
+    announce('Profile panel opened.');
+  };
+
+  overlay.addEventListener('click', (e) => {
+    if (e.target === overlay) closeProfile();
+  });
+  closeBtn?.addEventListener('click', () => closeProfile());
+
+  triggers.forEach((btn) => {
+    btn.setAttribute('aria-haspopup', 'dialog');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => openProfile(btn));
+  });
+
+  toggles.forEach((btn) => {
+    const sync = () => {
+      const isOn = btn.getAttribute('aria-pressed') === 'true';
+      btn.classList.toggle('is-on', isOn);
+      const state = btn.querySelector('.toggle-state');
+      if (state) state.textContent = isOn ? 'On' : 'Off';
+    };
+    sync();
+    btn.addEventListener('click', () => {
+      const isOn = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!isOn));
+      sync();
+      const label = btn.dataset.label || 'Setting';
+      announce(`${label} ${!isOn ? 'enabled' : 'disabled'}.`);
+    });
+  });
+
+  selectPronoun?.addEventListener('change', () => {
+    announce(`Pronouns updated to ${selectPronoun.value}.`);
+  });
+
+  avatarBtn?.addEventListener('click', () => {
+    announce('Avatar uploader ready — drag a new cover shot. (Demo)');
+  });
+
+  copyBtn?.addEventListener('click', () => {
+    announce('Profile link copied to clipboard. (Demo)');
+  });
+
+  downloadBtn?.addEventListener('click', () => {
+    announce('Show reel download queued. (Demo)');
+  });
+
+  timelineButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const text = btn.textContent?.trim() || 'Item';
+      announce(`${text} opened in a side drawer. (Demo)`);
+    });
+  });
+
+  footerButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isEdit = btn.classList.contains('profile-edit');
+      announce(isEdit ? 'Profile editor launching. (Demo)' : 'Personal schedule loaded. (Demo)');
+    });
   });
 })();
