@@ -17,7 +17,7 @@
     <div class="page">
       <main class="main-content" aria-labelledby="station-name">
         <header class="top-bar">
-          <div class="featured-show" aria-label="Featured show" data-artist="YR11 Originals" data-spotify="https://open.spotify.com">
+          <div class="featured-show" aria-label="Featured show" data-artist="YR11 Originals" data-spotify="https://open.spotify.com" data-audio="public/YR11_Music.m4a">
             <div class="show-art" aria-hidden="true">
               <div class="host-photo"></div>
             </div>
@@ -28,13 +28,32 @@
                 <button type="button" aria-label="Previous episode">
                   <span class="icon icon-previous"></span>
                 </button>
-                <button type="button" class="primary" aria-label="Play">
+                <button type="button" class="primary play-toggle" aria-label="Play">
                   <span class="icon icon-play"></span>
                 </button>
                 <button type="button" aria-label="Next episode">
                   <span class="icon icon-next"></span>
                 </button>
+                <button type="button" class="loop-toggle" aria-pressed="true" aria-label="Loop playback">
+                  <span class="icon icon-loop"></span>
+                </button>
               </div>
+              <div class="timeline" aria-label="Playback timeline">
+                <span class="time current-time" aria-live="off">0:00</span>
+                <input
+                  type="range"
+                  class="seek-bar"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="0"
+                  aria-label="Seek through featured track"
+                />
+                <span class="time duration">0:00</span>
+              </div>
+              <audio id="featured-audio" preload="metadata" loop hidden>
+                <source src="public/YR11_Music.m4a" type="audio/mp4" />
+              </audio>
             </div>
           </div>
           <div class="live-indicator" aria-live="polite">

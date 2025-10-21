@@ -129,6 +129,25 @@ body {
   box-shadow: 0 12px 24px rgba(255, 48, 73, 0.35);
 }
 
+.controls .loop-toggle {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--accent);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.controls .loop-toggle[aria-pressed="true"] {
+  background: rgba(255, 48, 73, 0.22);
+  border-color: rgba(255, 48, 73, 0.38);
+}
+
+.controls .loop-toggle:hover,
+.controls .loop-toggle:focus-visible {
+  background: rgba(255, 48, 73, 0.3);
+  border-color: rgba(255, 48, 73, 0.5);
+  transform: translateY(-2px);
+}
+
 .controls button:hover,
 .controls button:focus-visible {
   transform: translateY(-2px);
@@ -151,8 +170,7 @@ body {
 .icon-next::before,
 .icon-next::after,
 .icon-previous::before,
-.icon-previous::after,
-.icon-play::before {
+.icon-previous::after {
   content: "";
   position: absolute;
 }
@@ -199,15 +217,36 @@ body {
   border-radius: 1px;
 }
 
-.icon-play::before {
-  top: 50%;
-  left: 50%;
-  transform: translate(-45%, -50%); /* a slight left bias visually centers triangle */
-  width: 0;
-  height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 12px solid currentColor; /* use currentColor so color inheritance works */
+.icon-play,
+.icon-pause,
+.icon-loop {
+  width: 20px;
+  height: 20px;
+  background: currentColor;
+}
+
+.icon-play::before,
+.icon-play::after,
+.icon-pause::before,
+.icon-pause::after,
+.icon-loop::before,
+.icon-loop::after {
+  content: none;
+}
+
+.icon-play {
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M7 4.5v15l12-7.5-12-7.5Z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M7 4.5v15l12-7.5-12-7.5Z"/></svg>') center/contain no-repeat;
+}
+
+.icon-pause {
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23000" d="M6 4h4v16H6zm8 0h4v16h-4z"/></svg>') center/contain no-repeat;
+}
+
+.icon-loop {
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>') center/contain no-repeat;
+  mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="%23000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>') center/contain no-repeat;
 }
 
 .live-indicator {
@@ -313,6 +352,70 @@ body {
   display: flex;
   justify-content: flex-start;
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.timeline .time {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  min-width: 3.25ch;
+  text-align: center;
+}
+
+.seek-bar {
+  flex: 1;
+  appearance: none;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  outline: none;
+  position: relative;
+}
+
+.seek-bar::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 14px rgba(255, 48, 73, 0.45);
+  cursor: pointer;
+}
+
+.seek-bar::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0 14px rgba(255, 48, 73, 0.45);
+  cursor: pointer;
+}
+
+.seek-bar::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.seek-bar::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.timeline .seek-bar:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .cta-button {
@@ -1377,7 +1480,7 @@ nav a.outline:focus-visible {
 .icon, .icon::before, .icon::after { color: var(--text-primary); }
 
 /* Ensure play triangle is white inside action buttons */
-.icon-btn .icon-play::before { border-left-color: var(--text-primary) !important; }
+.icon-btn .icon-play { color: var(--text-primary); }
 
 .icon-download::before {
   content: ""; display: block; width: 14px; height: 14px; position: relative;

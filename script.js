@@ -8,8 +8,93 @@
   const titleEl = modalOverlay?.querySelector('#featured-modal-title');
   const artistEl = modalOverlay?.querySelector('#featured-modal-artist');
   const playLink = modalOverlay?.querySelector('#featured-modal-play');
+  const playBtn = controls?.querySelector('.play-toggle');
+  const playIcon = playBtn?.querySelector('.icon');
+  const loopToggle = controls?.querySelector('.loop-toggle');
+  const seekBar = featured?.querySelector('.seek-bar');
+  const timeline = featured?.querySelector('.timeline');
+  const currentTimeEl = featured?.querySelector('.current-time');
+  const durationEl = featured?.querySelector('.duration');
+  const audioEl = document.getElementById('featured-audio');
+  const audioSrc = featured?.getAttribute('data-audio');
 
-  if (!featured || !modalOverlay) return;
+  if (!featured) return;
+
+  // Audio setup
+  if (audioEl) {
+    if (!audioEl.src && audioSrc) {
+      audioEl.src = audioSrc;
+      audioEl.load();
+    }
+    audioEl.loop = true;
+    loopToggle?.setAttribute('aria-pressed', 'true');
+    if (seekBar) {
+      seekBar.value = '0';
+      seekBar.disabled = true;
+    }
+    updateCurrentTimeDisplay(0);
+
+    audioEl.addEventListener('loadedmetadata', () => {
+      if (durationEl) durationEl.textContent = formatTime(audioEl.duration);
+      if (seekBar) {
+        seekBar.disabled = false;
+        seekBar.value = '0';
+      }
+      updateCurrentTimeDisplay(0);
+    });
+
+    audioEl.addEventListener('timeupdate', () => {
+      if (!seekBar || !Number.isFinite(audioEl.duration) || audioEl.duration === 0) return;
+      const percent = (audioEl.currentTime / audioEl.duration) * 100;
+      seekBar.value = String(percent);
+      updateCurrentTimeDisplay(audioEl.currentTime);
+    });
+
+    audioEl.addEventListener('play', () => setPlayingState(true));
+    audioEl.addEventListener('pause', () => setPlayingState(false));
+    audioEl.addEventListener('ended', () => {
+      if (!audioEl.loop) setPlayingState(false);
+    });
+
+    seekBar?.addEventListener('input', () => {
+      if (!Number.isFinite(audioEl.duration) || audioEl.duration === 0) return;
+      const percent = Number(seekBar.value);
+      audioEl.currentTime = (percent / 100) * audioEl.duration;
+      updateCurrentTimeDisplay(audioEl.currentTime);
+    });
+
+    const stopModalPropagation = (event) => event.stopPropagation();
+    ['mousedown', 'touchstart', 'pointerdown', 'click'].forEach((evt) => {
+      seekBar?.addEventListener(evt, stopModalPropagation);
+      timeline?.addEventListener(evt, stopModalPropagation);
+    });
+
+    loopToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const pressed = loopToggle.getAttribute('aria-pressed') === 'true';
+      const next = !pressed;
+      loopToggle.setAttribute('aria-pressed', String(next));
+      if (next) {
+        audioEl.loop = true;
+        audioEl.setAttribute('loop', '');
+      } else {
+        audioEl.loop = false;
+        audioEl.removeAttribute('loop');
+      }
+    });
+  }
+
+  playBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (audioEl) {
+      if (audioEl.paused) {
+        audioEl.play().catch(() => setPlayingState(false));
+      } else {
+        audioEl.pause();
+      }
+    }
+    openModal();
+  });
 
   // Open modal only when clicking the featured background, not the controls
   featured.addEventListener('click', (e) => {
@@ -25,6 +110,7 @@
   });
 
   function openModal() {
+    if (!modalOverlay) return;
     // hydrate info from data attributes
     const artist = featured.getAttribute('data-artist') || 'Unknown Artist';
     const spotify = featured.getAttribute('data-spotify') || 'https://open.spotify.com';
@@ -60,15 +146,38 @@
   }
 
   function closeModal() {
+    if (!modalOverlay) return;
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
   }
 
   closeBtn?.addEventListener('click', closeModal);
   closeActionBtn?.addEventListener('click', closeModal);
-  modalOverlay.addEventListener('click', (e) => {
+  modalOverlay?.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeModal(); // click outside to close
   });
+
+  function setPlayingState(isPlaying) {
+    if (!playBtn || !playIcon) return;
+    playBtn.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
+    playIcon.classList.toggle('icon-play', !isPlaying);
+    playIcon.classList.toggle('icon-pause', isPlaying);
+  }
+
+  function updateCurrentTimeDisplay(timeSeconds) {
+    if (!currentTimeEl) return;
+    const seconds = Number.isFinite(timeSeconds) ? timeSeconds : 0;
+    currentTimeEl.textContent = formatTime(seconds);
+  }
+
+  function formatTime(seconds) {
+    if (!Number.isFinite(seconds)) return '0:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, '0');
+    return `${mins}:${secs}`;
+  }
 })();
 
 // Settings gear progressive acceleration
