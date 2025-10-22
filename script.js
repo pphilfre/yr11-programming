@@ -17,6 +17,7 @@
   const durationEl = featured?.querySelector('.duration');
   const audioEl = document.getElementById('featured-audio');
   const audioSrc = featured?.getAttribute('data-audio');
+  let isSeeking = false;
 
   if (!featured) return;
 
@@ -44,6 +45,7 @@
     });
 
     audioEl.addEventListener('timeupdate', () => {
+      if (isSeeking) return;
       if (!seekBar || !Number.isFinite(audioEl.duration) || audioEl.duration === 0) return;
       const percent = (audioEl.currentTime / audioEl.duration) * 100;
       seekBar.value = String(percent);
@@ -63,11 +65,42 @@
       updateCurrentTimeDisplay(audioEl.currentTime);
     });
 
-    const stopModalPropagation = (event) => event.stopPropagation();
-    ['mousedown', 'touchstart', 'pointerdown', 'click'].forEach((evt) => {
-      seekBar?.addEventListener(evt, stopModalPropagation);
-      timeline?.addEventListener(evt, stopModalPropagation);
+    const handleSeekStart = (event) => {
+      event.stopPropagation();
+      isSeeking = true;
+    };
+
+    const handleSeekEnd = (event) => {
+      event.stopPropagation();
+      if (!Number.isFinite(audioEl.duration) || audioEl.duration === 0 || !seekBar) {
+        isSeeking = false;
+        return;
+      }
+      const percent = Number(seekBar.value);
+      audioEl.currentTime = (percent / 100) * audioEl.duration;
+      updateCurrentTimeDisplay(audioEl.currentTime);
+      isSeeking = false;
+    };
+
+    const handleSeekMove = (event) => {
+      event?.stopPropagation?.();
+      if (!Number.isFinite(audioEl.duration) || audioEl.duration === 0 || !seekBar) return;
+      const percent = Number(seekBar.value);
+      audioEl.currentTime = (percent / 100) * audioEl.duration;
+      updateCurrentTimeDisplay(audioEl.currentTime);
+    };
+
+    ['pointerdown', 'mousedown', 'touchstart'].forEach((evt) => {
+      seekBar?.addEventListener(evt, handleSeekStart);
+      timeline?.addEventListener(evt, (event) => event.stopPropagation());
     });
+
+    ['pointerup', 'mouseup', 'touchend', 'touchcancel', 'pointercancel'].forEach((evt) => {
+      seekBar?.addEventListener(evt, handleSeekEnd);
+    });
+
+    seekBar?.addEventListener('change', handleSeekMove);
+    seekBar?.addEventListener('click', (event) => event.stopPropagation());
 
     loopToggle?.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -93,7 +126,6 @@
         audioEl.pause();
       }
     }
-    openModal();
   });
 
   // Open modal only when clicking the featured background, not the controls
@@ -178,6 +210,40 @@
       .padStart(2, '0');
     return `${mins}:${secs}`;
   }
+})();
+
+// Reactive gradient tiles for genres and playlists (and search result cards)
+(() => {
+  const tiles = document.querySelectorAll('.genre-tile, .playlist-tile, .result-card');
+  if (!tiles.length) return;
+
+  const updateGradient = (event) => {
+    const target = event.currentTarget;
+    if (!(target instanceof HTMLElement)) return;
+    const rect = target.getBoundingClientRect();
+    const clientX = event.clientX ?? (event.touches && event.touches[0]?.clientX);
+    const clientY = event.clientY ?? (event.touches && event.touches[0]?.clientY);
+    if (clientX == null || clientY == null) return;
+
+    const relativeX = ((clientX - rect.left) / rect.width) * 100;
+    const relativeY = ((clientY - rect.top) / rect.height) * 100;
+
+    target.style.setProperty('--pointer-x', `${relativeX}%`);
+    target.style.setProperty('--pointer-y', `${relativeY}%`);
+  };
+
+  const resetGradient = (event) => {
+    const target = event.currentTarget;
+    if (!(target instanceof HTMLElement)) return;
+    target.style.removeProperty('--pointer-x');
+    target.style.removeProperty('--pointer-y');
+  };
+
+  tiles.forEach((tile) => {
+    tile.addEventListener('pointermove', updateGradient);
+    tile.addEventListener('pointerenter', updateGradient);
+    tile.addEventListener('pointerleave', resetGradient);
+  });
 })();
 
 // Settings gear progressive acceleration
@@ -473,6 +539,13 @@
 
   let activeFilter = 'all';
 
+  const normalizeFilter = (filter) => {
+    if (!filter) return 'all';
+    if (filter === 'all') return 'all';
+    // Map plural filters (podcasts, artists, playlists) to singular data-type values (podcast, artist, playlist)
+    return filter.endsWith('s') ? filter.slice(0, -1) : filter;
+  };
+
   function apply() {
     const q = (input?.value || '').trim().toLowerCase();
     let visibleCount = 0;
@@ -486,7 +559,7 @@
         const name = card.getAttribute('data-name')?.toLowerCase() || '';
         const cType = card.getAttribute('data-type');
         const matchesText = !q || name.includes(q);
-        const matchesType = activeFilter === 'all' || activeFilter === cType || (activeFilter === 'podcasts' && cType === 'podcast');
+        const matchesType = activeFilter === 'all' || normalizeFilter(activeFilter) === cType;
         const show = matchesText && matchesType && isGroupActive;
         card.style.display = show ? '' : 'none';
         if (show) { visibleCount++; groupVisible++; }
