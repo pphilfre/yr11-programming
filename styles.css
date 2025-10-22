@@ -1554,6 +1554,72 @@ nav a.outline:focus-visible {
 .r-meta.down { color: #ff4459; }
 .r-meta::before { content: ""; }
 
+/* Trending #1 Animated Border Effect */
+.trending-number-one {
+  position: relative;
+  padding: 4px;
+  border-radius: 12px;
+  background: linear-gradient(-30deg, rgba(255, 48, 73, 0.3), transparent, rgba(255, 48, 73, 0.3)),
+    linear-gradient(to bottom, var(--background-secondary), var(--background-secondary));
+  overflow: visible;
+}
+
+.trending-number-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(-30deg, rgba(255, 48, 73, 0.8), transparent 30%, transparent 70%, rgba(255, 48, 73, 0.8));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  filter: url(#trending-glow);
+  animation: trending-border-glow 3s ease-in-out infinite;
+}
+
+.trending-number-one::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 16px;
+  background: radial-gradient(circle at center, rgba(255, 48, 73, 0.25), transparent 60%);
+  filter: blur(20px);
+  opacity: 0.6;
+  z-index: -1;
+  pointer-events: none;
+  animation: trending-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes trending-border-glow {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes trending-glow-pulse {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.svg-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 /* Mini grids */
 .mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
 .mini-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
@@ -1579,6 +1645,7 @@ nav a.outline:focus-visible {
   opacity: 0.9;
   mix-blend-mode: screen;
   transition: opacity 0.3s ease, transform 0.35s ease;
+  pointer-events: none;
 }
 .genre-tile:hover, .genre-tile:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 30px -6px rgba(0,0,0,0.55); }
 .genre-tile:hover::before, .genre-tile:focus-visible::before { opacity: 1; }
@@ -1672,6 +1739,7 @@ nav a.outline:focus-visible {
   opacity: 0.85;
   mix-blend-mode: screen;
   transition: opacity 0.3s ease, transform 0.35s ease;
+  pointer-events: none;
 }
 .playlists-page .playlist-tile:hover, .playlists-page .playlist-tile:focus-visible { transform:translateY(-4px); box-shadow:0 14px 30px -6px rgba(0,0,0,0.55); }
 .playlists-page .playlist-tile:hover::before, .playlists-page .playlist-tile:focus-visible::before { opacity:1; }
