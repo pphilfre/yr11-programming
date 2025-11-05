@@ -1,0 +1,34 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/schedule", "destination": "/schedule.html" },
+    { "source": "/podcasts", "destination": "/podcasts.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/trending", "destination": "/trending.html" },
+    { "source": "/genres", "destination": "/genres.html" },
+    { "source": "/playlists", "destination": "/playlists.html" },
+    { "source": "/search", "destination": "/search.html" },
+    { "source": "/genre-rock", "destination": "/genre-rock.html" },
+    { "source": "/genre-pop", "destination": "/genre-pop.html" },
+    { "source": "/genre-jazz", "destination": "/genre-jazz.html" },
+    { "source": "/genre-drill", "destination": "/genre-drill.html" },
+    { "source": "/genre-indie", "destination": "/genre-indie.html" }
+  ],
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/schedule.html", "destination": "/schedule", "permanent": true },
+    { "source": "/podcasts.html", "destination": "/podcasts", "permanent": true },
+    { "source": "/about.html", "destination": "/about", "permanent": true },
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
+    { "source": "/trending.html", "destination": "/trending", "permanent": true },
+    { "source": "/genres.html", "destination": "/genres", "permanent": true },
+    { "source": "/playlists.html", "destination": "/playlists", "permanent": true },
+    { "source": "/search.html", "destination": "/search", "permanent": true },
+    { "source": "/genre-rock.html", "destination": "/genre-rock", "permanent": true },
+    { "source": "/genre-pop.html", "destination": "/genre-pop", "permanent": true },
+    { "source": "/genre-jazz.html", "destination": "/genre-jazz", "permanent": true },
+    { "source": "/genre-drill.html", "destination": "/genre-drill", "permanent": true },
+    { "source": "/genre-indie.html", "destination": "/genre-indie", "permanent": true }
+  ]
+}
