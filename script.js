@@ -1150,3 +1150,98 @@
     });
   });
 })();
+
+// Podcast Card Interactivity
+(() => {
+  const podcastCards = document.querySelectorAll('.podcast-card');
+  
+  podcastCards.forEach((card) => {
+    // Make entire card clickable
+    card.addEventListener('click', (e) => {
+      // Don't trigger if clicking action buttons
+      if (e.target.closest('.icon-btn')) return;
+      
+      const title = card.querySelector('.title')?.textContent || 'Podcast';
+      const meta = card.querySelector('.meta')?.textContent || '';
+      
+      // Add a subtle flash effect
+      card.style.animation = 'none';
+      setTimeout(() => {
+        card.style.animation = '';
+      }, 10);
+      
+      console.log(`Opening podcast: ${title} - ${meta}`);
+      
+      // You could open a modal, navigate to a page, or start playback here
+      // For now, we'll just add a visual indication
+      const ripple = document.createElement('div');
+      ripple.style.cssText = `
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at ${e.offsetX}px ${e.offsetY}px, rgba(255, 48, 73, 0.4), transparent 60%);
+        pointer-events: none;
+        animation: ripple 0.6s ease-out;
+        border-radius: 0.75rem;
+      `;
+      card.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 600);
+    });
+    
+    // Add keyboard accessibility
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `Play ${card.querySelector('.title')?.textContent || 'podcast'}`);
+    
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+    
+    // Handle action button clicks
+    const playBtn = card.querySelector('.icon-play')?.closest('.icon-btn');
+    const downloadBtn = card.querySelector('.icon-download')?.closest('.icon-btn');
+    const menuBtn = card.querySelector('.icon-menu')?.closest('.icon-btn');
+    
+    if (playBtn) {
+      playBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title = card.querySelector('.title')?.textContent || 'Podcast';
+        console.log(`Playing: ${title}`);
+        // Add play animation or start audio playback here
+      });
+    }
+    
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title = card.querySelector('.title')?.textContent || 'Podcast';
+        console.log(`Downloading: ${title}`);
+        // Trigger download here
+      });
+    }
+    
+    if (menuBtn) {
+      menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const title = card.querySelector('.title')?.textContent || 'Podcast';
+        console.log(`Opening menu for: ${title}`);
+        // Show context menu here
+      });
+    }
+  });
+  
+  // Add ripple animation to stylesheet dynamically
+  if (!document.querySelector('#podcast-ripple-style')) {
+    const style = document.createElement('style');
+    style.id = 'podcast-ripple-style';
+    style.textContent = `
+      @keyframes ripple {
+        0% { opacity: 1; transform: scale(0); }
+        100% { opacity: 0; transform: scale(2.5); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+})();

@@ -1448,6 +1448,22 @@ nav a.outline:focus-visible {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.podcast-card:hover {
+  transform: translateY(-0.375rem);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255, 48, 73, 0.4);
+  box-shadow: 0 0.5rem 1.5rem rgba(255, 48, 73, 0.2), 
+              0 0.25rem 0.75rem rgba(0, 0, 0, 0.3);
+}
+
+.podcast-card:active {
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(255, 48, 73, 0.15);
 }
 
 .podcast-card .thumb {
@@ -1457,6 +1473,21 @@ nav a.outline:focus-visible {
   border-radius: 0.625rem;
   overflow: hidden;
   background: rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.podcast-card .thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.podcast-card:hover .thumb::after {
+  opacity: 1;
 }
 
 .podcast-card .thumb img { 
@@ -1464,6 +1495,11 @@ nav a.outline:focus-visible {
   height: 100%; 
   object-fit: cover; 
   display: block;
+  transition: transform 0.3s ease;
+}
+
+.podcast-card:hover .thumb img {
+  transform: scale(1.05);
 }
 
 .podcast-card .title {
@@ -1482,6 +1518,18 @@ nav a.outline:focus-visible {
   border: 0.0625rem solid rgba(255,255,255,0.1);
   background: rgba(255,255,255,0.06);
   display: flex; align-items: center; justify-content: center; color: var(--text-primary);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 48, 73, 0.2);
+  border-color: rgba(255, 48, 73, 0.4);
+  transform: scale(1.1);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
 }
 
 /* Ensure all icons inherit a consistent size/color and alignment */
