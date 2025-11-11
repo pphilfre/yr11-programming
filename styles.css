@@ -1100,6 +1100,8 @@ nav a.outline:focus-visible {
   padding: clamp(1.25rem, 3vw, 1.75rem) clamp(1rem, 2.5vw, 1.5rem);
   gap: 1.5rem;
   scrollbar-gutter: stable both-edges;
+  flex: 1;
+  width: 100%;
 }
 
 /* Left Sidebar */
@@ -1418,15 +1420,16 @@ nav a.outline:focus-visible {
 
 .podcast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11.25rem, 1fr));
-  gap: clamp(0.9rem, 2vw, 1.6rem);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
   overflow-y: auto;
   align-content: start;
+  width: 100%;
 }
 
 @media (min-width: 87.5rem) {
   .podcast-grid {
-    grid-template-columns: repeat(auto-fit, minmax(13.75rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
